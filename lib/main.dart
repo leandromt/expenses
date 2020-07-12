@@ -1,6 +1,6 @@
-import 'package:expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:expenses/models/transaction.dart';
+import 'package:expenses/components/transaction_list.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -50,54 +50,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Column(
-            children: _transactions.map((e) {
-              return Card(
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: Text(
-                        'R\$ ${e.value.toStringAsFixed(2)}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                          color: Colors.purple
-                        ),
-                      ),
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 10
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.purple[50],
-                          width: 2,
-                        ),
-                      ),
-                      padding: EdgeInsets.all(10),
-                    ),
-                    Column(
-                      children: <Widget>[
-                        Text(e.title, 
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16
-                          ),
-                        ),
-                        Text(
-                          DateFormat('d MMM y').format(e.date),
-                          style: TextStyle(
-                            color: Colors.grey
-                          ),
-                        ),
-                      ],
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                    ),
-                  ],
-                ),
-              );
-            }).toList(),
-          ),
+          TransactionList(_transactions),
           Card(
             elevation: 5,
             child: Padding(
@@ -121,7 +74,10 @@ class MyHomePage extends StatelessWidget {
                     children: <Widget>[
                       FlatButton(
                         child: Text('Nova transação'),
-                        onPressed: () {},
+                        onPressed: () {
+                          print(titleController.text);
+                          print(valueController.text);
+                        },
                         textColor: Colors.purple,
                       ),
                     ],
