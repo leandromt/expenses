@@ -14,14 +14,44 @@ class _TransactionUserState extends State<TransactionUser> {
   final _transactions = [
     Transaction(
       id: 'T1',
-      title: 'Compra de tenis',
+      title: 'Xiaomi Mi8',
       value: 123.32,
       date: DateTime.now()
     ),
     Transaction(
       id: 'T2',
-      title: 'Reparo no carro',
+      title: 'Moto G5',
       value: 99,
+      date: DateTime.now()
+    ),
+    Transaction(
+      id: 'T3',
+      title: 'Samsung Galaxy 8',
+      value: 350.32,
+      date: DateTime.now()
+    ),
+    Transaction(
+      id: 'T4',
+      title: 'iPhone 11',
+      value: 5025.23,
+      date: DateTime.now()
+    ),
+    Transaction(
+      id: 'T5',
+      title: 'LG K10',
+      value: 50.12,
+      date: DateTime.now()
+    ),
+    Transaction(
+      id: 'T6',
+      title: 'iPad 3',
+      value: 50.12,
+      date: DateTime.now()
+    ),
+    Transaction(
+      id: 'T7',
+      title: 'MacBook Pro',
+      value: 15550.99,
       date: DateTime.now()
     ),
   ];
@@ -44,8 +74,8 @@ class _TransactionUserState extends State<TransactionUser> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TransactionList(_transactions),
         TransactionForm(_addTransaction),
+        TransactionList(_transactions),
       ],
     );
   }
