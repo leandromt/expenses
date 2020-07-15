@@ -11,31 +11,25 @@ class ExpensesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blueGrey,
+        accentColor: Colors.teal,
+        fontFamily: 'Ubuntu',
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final _transactions = [
     Transaction(
-      id: 'T1',
-      title: 'Xiaomi Mi8',
-      value: 123.32,
-      date: DateTime.now()
-    ),
-    Transaction(
-      id: 'T2',
-      title: 'Moto G5',
-      value: 99,
-      date: DateTime.now()
-    ),
+        id: 'T1', title: 'Xiaomi Mi8', value: 123.32, date: DateTime.now()),
+    Transaction(id: 'T2', title: 'Moto G5', value: 99, date: DateTime.now()),
   ];
 
   _addTransaction(String title, double value) {
@@ -52,21 +46,20 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Navigator.of(context).pop();
   }
-  
+
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
-      context: context, 
-      builder: (_) {
-        return TransactionForm(_addTransaction);
-      }
-    );
+        context: context,
+        builder: (_) {
+          return TransactionForm(_addTransaction);
+        });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Despesas pessoais'),
+        title: Text('Despesas Pessoais'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
@@ -81,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               width: double.infinity,
               child: Card(
-                color: Colors.blue,
+                // color: Colors.blue,
                 child: Text('Gráfico'),
                 elevation: 5,
               ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
-  
   final List<Transaction> transactions;
 
   TransactionList(this.transactions);
@@ -23,18 +22,17 @@ class TransactionList extends StatelessWidget {
                   child: Text(
                     'R\$ ${e.value.toStringAsFixed(2)}',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Colors.purple
-                    ),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Theme.of(context).primaryColor,
+                        fontFamily: 'OpenSans'
+                        // color: Colors.purple
+                        ),
                   ),
-                  margin: EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 10
-                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Colors.purple[50],
+                      color: Theme.of(context).primaryColor,
                       width: 2,
                     ),
                   ),
@@ -42,17 +40,14 @@ class TransactionList extends StatelessWidget {
                 ),
                 Column(
                   children: <Widget>[
-                    Text(e.title, 
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                      ),
+                    Text(
+                      e.title,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     Text(
                       DateFormat('d MMM y').format(e.date),
-                      style: TextStyle(
-                        color: Colors.grey
-                      ),
+                      style: TextStyle(color: Colors.grey),
                     ),
                   ],
                   crossAxisAlignment: CrossAxisAlignment.start,
